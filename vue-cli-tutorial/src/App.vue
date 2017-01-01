@@ -1,13 +1,12 @@
 <template>
   <div id="app">
-    <editor-view @add="add"></editor-view>
-    <list-view :memos="memos" @remove="remove"></list-view>
+    <nav-link></nav-link>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import EditorView from './components/EditorView'
-import ListView from './components/ListView'
+import NavLink from './components/NavLink'
 
 export default {
   name: 'app',
@@ -50,8 +49,7 @@ export default {
     }
   },
   components: {
-    'editor-view': EditorView,
-    'list-view': ListView
+    NavLink
   }
 }
 </script>
