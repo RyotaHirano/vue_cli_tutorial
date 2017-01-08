@@ -24,7 +24,7 @@
   </div>
 </template>
 
-<script>
+<script lang="babel">
   export default{
     props: {
       memo: Object
