@@ -1,6 +1,7 @@
 import Root from './page/Root'
 import Add from './page/Add'
 import Items from './page/Items'
+import EditorView from './components/EditorView'
 
 export default {
   mode: 'history',
@@ -18,7 +19,14 @@ export default {
     {
       path: '/items',
       component: Items,
-      name: 'items'
+      name: 'items',
+      children: [
+        {
+          path: ':id',
+          component: EditorView,
+          name: 'edit'
+        }
+      ]
     }
   ]
 }
