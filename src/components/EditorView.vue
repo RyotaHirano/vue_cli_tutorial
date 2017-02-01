@@ -20,6 +20,9 @@
 
 <script>
   export default{
+    props: {
+      memo: Object
+    },
     data() {
       return {
         input: {
@@ -28,6 +31,9 @@
           tags: ''
         }
       }
+    },
+    create() {
+
     },
     computed: {
       // テンプレート上、methodsなどから参照する関数を定義(計算結果などをそのまま表示するときなど)
@@ -43,6 +49,11 @@
         const data = Object.assign({}, this.input, {tags: this.tagsArr})
         // 'add'イベントを自身にトリガーする
         this.$emit('add', data)
+      },
+      setMemo() {
+         if(this.memo){
+            Object.assign(this.input, this.memo, {tags: this.memo.tags.join(' ')})
+         }
       }
     }
   }

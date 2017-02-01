@@ -1,5 +1,5 @@
 <template>
-  <div class="list-item">
+  <div class="list-item" @click="select(memo.id)">
     <div>
       <span>ID</span>
       <span>{{memo.id}}</span>
@@ -19,7 +19,7 @@
       </span>
     </div>
     <div>
-      <button @click="remove(memo.id)">削除</button>
+      <button @click.stop="remove(memo.id)">削除</button>
     </div>
   </div>
 </template>
@@ -32,6 +32,9 @@
     methods: {
       remove(id) {
         this.$parent.$emit('remove', id)
+      },
+      select(id) {
+        this.$emit('select', id)
       }
     }
   }
