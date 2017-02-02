@@ -8,6 +8,7 @@
     <router-view
             class="layout-items-right"
             :memo="selectedMemo"
+            @add="update"
     ></router-view>
   </div>
 </template>
@@ -41,6 +42,10 @@
             params: {id}
           }
         )
+      },
+      update(data) {
+        this.$emit('update', data)
+        this.$router.push({name: 'items'})
       }
     },
     components: {

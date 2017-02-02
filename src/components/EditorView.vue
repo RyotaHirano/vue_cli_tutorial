@@ -32,8 +32,11 @@
         }
       }
     },
-    create() {
-
+    created() {
+        this.setMemo();
+    },
+    watch: {
+      memo: 'setMemo'
     },
     computed: {
       // テンプレート上、methodsなどから参照する関数を定義(計算結果などをそのまま表示するときなど)
