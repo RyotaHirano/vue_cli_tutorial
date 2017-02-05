@@ -9,6 +9,7 @@
             class="layout-items-right"
             :memo="selectedMemo"
             @add="update"
+            @cancel="back"
     ></router-view>
   </div>
 </template>
@@ -45,6 +46,9 @@
       },
       update(data) {
         this.$emit('update', data)
+        this.$router.push({name: 'items'})
+      },
+      back() {
         this.$router.push({name: 'items'})
       }
     },

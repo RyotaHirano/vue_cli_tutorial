@@ -1,5 +1,9 @@
 <template>
   <div class="editor-view">
+    <div v-if="memo">
+      <label>ID：</label>
+      <input v-model="input.id" disabled>
+    </div>
     <div>
       <label>内容：</label>
       <input v-model="input.text" placeholder="メモのタイトル">
@@ -13,6 +17,7 @@
       <input v-model="input.tags" placeholder="空白区切りで指定">
     </div>
     <div>
+      <button @click="cancel" v-if="memo">戻る</button>
       <button @click="save">保存</button>
     </div>
   </div>
@@ -57,7 +62,16 @@
          if(this.memo){
             Object.assign(this.input, this.memo, {tags: this.memo.tags.join(' ')})
          }
+      },
+      cancel() {
+        this.$emit('cancel')
       }
     }
   }
 </script>
+
+<style scoped lang="scss">
+  input:disabled {
+    border-color: transparent;
+  }
+</style>
