@@ -6,11 +6,13 @@
 
 <script lang="babel">
   import EditorView from '../components/EditorView'
+  import {state} from '../store'
+  import {actions} from '../actions'
 
   export default {
     methods: {
       add(data) {
-        this.$emit('add', data)
+        actions.addMemo(data)
         this.$router.push({name: 'items'}) // 追加のあとに「一覧」にナビゲーションする
       }
     },
