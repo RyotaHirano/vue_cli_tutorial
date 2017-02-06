@@ -16,16 +16,12 @@
 
 <script lang="babel">
   import ListView from '../components/ListView';
-  import {state} from '../store';
-  import {actions} from '../actions';
 
   export default{
-    data() {
-      return {
-        sharedState: state
-      }
-    },
     computed: {
+      sharedState() {
+        return this.$store.state
+      },
       selectedMemo() {
         const id = parseInt(this.$route.params.id, 10)
         if(id !== undefined) {
@@ -38,7 +34,7 @@
     },
     methods: {
       remove(id) {
-        actions.deleteMemo(id)
+        this.$store.commit('deleteMemo', id)
         this.$router.push({name: 'items'})
       },
       select(id) {
@@ -50,7 +46,7 @@
         )
       },
       update(data) {
-        actions.updateMemo(data)
+        this.$store.commit('updateMemo', data)
         this.$router.push({name: 'items'})
       },
       back() {

@@ -1,5 +1,6 @@
-export const debug = process.env.NODE_ENV !== 'production'
-export const state = {
+import {mutations} from './mutations';
+
+const state = {
   memos: [
     {
       id: 1,
@@ -16,3 +17,7 @@ export const state = {
   ]
 }
 
+export default {
+  state,
+  mutations
+}

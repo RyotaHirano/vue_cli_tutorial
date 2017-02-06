@@ -11,22 +11,24 @@
 
 <script lang="babel">
   import ListView from '../components/ListView'
-  import {state} from '../store';
-  import {actions} from '../actions';
 
   export default {
     data() {
       return {
-        sharedState: state,
         privateState: {
           count: 3,
           sort: 'latest'
         }
       }
     },
+    computed: {
+      sharedState() {
+        return this.$store.state
+      }
+    },
     methods: {
       remove(id) {
-        actions.deleteMemo(id)
+        this.$store.commit('removeMemo', id)
       }
     },
     components: {
