@@ -1,5 +1,4 @@
-import {debug} from './store'
-import {state} from './store'
+import {debug, state} from './store'
 import {util} from './util'
 
 export const actions  = {
