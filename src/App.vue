@@ -11,7 +11,7 @@ import NavLink from './components/NavLink'
 export default {
   name: 'app',
   components: {
-    NavLink
+    NavLink // 'nav-link': NavLink と同様
   }
 }
 </script>
